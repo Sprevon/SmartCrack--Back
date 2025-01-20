@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="net.leonbwchen.smartcrack.business.billboard.dao.mysql.PicInfoMapper">
+
+    <insert id="insertPic">
+        insert into pic_info(pic_id, pic_time, pic_operator, pic_address)
+        values(#{picId}, #{picTime}, #{picOperator}, #{picAddress})
+    </insert>
+    <select id="selectPicByPicId"
+            resultType="net.leonbwchen.smartcrack.business.billboard.entity.mysql.MPicInfo">
+        select pic_id, pic_time, pic_operator, pic_address
+        from pic_info
+        where pic_id = #{picId}
+    </select>
+
+</mapper>

@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="net.leonbwchen.smartcrack.login.dao.UserMapper">
+    <insert id="createUser">
+        insert into user_info(user_id, username, password, authority, department)
+            value (#{userId}, #{username}, #{password}, #{authority}, #{department})
+    </insert>
+
+    <select id="selectUser" resultType="net.leonbwchen.smartcrack.login.entity.User">
+        select *
+        from user_info
+        where username = #{username}
+    </select>
+
+    <select id="countUsername" resultType="java.lang.Integer">
+        select count(*)
+        from user_info
+        where username = #{username}
+    </select>
+</mapper>
